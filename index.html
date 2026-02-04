@@ -341,6 +341,19 @@ function showSurprise(){
   surprise.classList.remove("hidden");
 }
 
+  function stopMainMusic() {
+  const mainMusic = document.getElementById("bgMusic"); // ya jo id tune di hai
+  if (!mainMusic.paused) {
+    mainMusic.pause();
+    mainMusic.currentTime = 0; // start se dobara baj sake
+  }
+  }
+  function startCelebration() {
+  stopMainMusic(); // pehle main page music stop
+  // phir celebration countdown ya animation shuru
+  showCelebrationCountdown();
+  }
+  
 /* CELEBRATION */
 function startCelebration(){
   celebrate.classList.remove("hidden");
