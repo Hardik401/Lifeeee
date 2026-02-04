@@ -382,15 +382,15 @@ function startCelebration(){
     cNum.innerText=c--;
     if(c<0){
       clearInterval(i);
-      celebrate.innerHTML=`
+      celebrate.innerHTML=
         <h1>🎉 Happy Birthday 🎉</h1>
         <div id="cake">🎂<div id="candles">🕯️🕯️🕯️</div></div>
         <button class="btn" onclick="blow()">💨 Candles Blow Kariye Rasmalaiii</button>
         <br>
-        <button id="cutBtn" class="btn hidden" onclick="cut()">🔪 Cake Ko Cut Kriye Sonaa</button>
+        <button id="cutBtn" class="btn hidden" onclick="cut()">🔪 Cake Ko Cut Kriye Sonaa☺️☺️</button>
         <br>
         <button id="finishBtn" class="btn hidden" onclick="showFinal()">The Final Message ❤️</button>
-      `;
+      ;
       startBalloons();
     }
   },1000);
@@ -422,7 +422,7 @@ function startBalloons(){
   setInterval(()=>{
     const b=document.createElement("div");
     b.className="balloon";
-    b.innerHTML="🎈   🎇";
+    b.innerHTML="🎈  🎇";
     b.style.left=Math.random()*100+"vw";
     document.body.appendChild(b);
     setTimeout(()=>b.remove(),6000);
