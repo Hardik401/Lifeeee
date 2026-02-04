@@ -288,7 +288,7 @@ setInterval(()=>{
   if(!intro.classList.contains("hidden")){
     const f=document.createElement("div");
     f.className="flower";
-    f.innerHTML="🌹,🌸";
+    f.innerHTML="🌹     🌸";
     f.style.left=Math.random()*100+"vw";
     intro.appendChild(f);
     setTimeout(()=>f.remove(),6000);
@@ -343,7 +343,7 @@ function startHearts(){
   setInterval(()=>{
     const h=document.createElement("div");
     h.className="float";
-    h.innerHTML="❤️,💖,💗,💕,💝,💞,💘,😘,💋";
+    h.innerHTML="❤️   💖   💗   💞";
     h.style.left=Math.random()*100+"vw";
     document.body.appendChild(h);
     setTimeout(()=>h.remove(),6000);
@@ -378,9 +378,11 @@ function startCelebration(){
       celebrate.innerHTML=`
         <h1>🎉 Happy Birthday 🎉</h1>
         <div id="cake">🎂<div id="candles">🕯️🕯️🕯️</div></div>
-        <button class="btn" onclick="blow()">💨 Blow Candles</button>
-        <button id="cutBtn" class="btn hidden" onclick="cut()">🔪 Cut Cake</button>
-        <button id="finishBtn" class="btn hidden" onclick="showFinal()">❤️ Finish</button>
+        <button class="btn" onclick="blow()">💨 Candles Blow Kariye Rasmalaiii</button>
+        <br>
+        <button id="cutBtn" class="btn hidden" onclick="cut()">🔪 Cake Ko Cut Kriye Sonaa</button>
+        <br>
+        <button id="finishBtn" class="btn hidden" onclick="showFinal()">The Final Message ❤️</button>
       `;
       startBalloons();
     }
@@ -413,7 +415,7 @@ function startBalloons(){
   setInterval(()=>{
     const b=document.createElement("div");
     b.className="balloon";
-    b.innerHTML="🎈","🎇";
+    b.innerHTML="🎈   🎇";
     b.style.left=Math.random()*100+"vw";
     document.body.appendChild(b);
     setTimeout(()=>b.remove(),6000);
