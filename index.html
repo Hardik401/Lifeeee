@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday My Love ❤️</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
+  color:#fff;
+  overflow-x:hidden;
+  text-align:center;
+}
+.hidden{display:none!important}
+
+/* BUTTON */
+.btn{
+  padding:12px 30px;
+  border-radius:30px;
+  border:none;
+  background:#fff;
+  color:#ff5a87;
+  font-size:1.1em;
+  cursor:pointer;
+  margin:10px;
+}
+
+/* SCREENS */
+.screen{
+  position:fixed;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
+  z-index:1000;
+}
+
+/* 🌸 INTRO FLOWERS */
+#intro{overflow:hidden}
+.flower{
+  position:absolute;
+  top:-30px;
+  font-size:24px;
+  animation:fall 6s linear forwards;
+}
+@keyframes fall{
+  to{transform:translateY(110vh);opacity:0;}
+}
+
+/* ❤️ HEART COUNTDOWN — FIXED */
+.heartBox{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.heart{
+  width:220px;
+  height:200px;
+  position:relative;
+  animation:beat 1s infinite;
+}
+
+.heart::before,
+.heart::after{
+  content:"";
+  position:absolute;
+  width:120px;
+  height:180px;
+  background:red;
+  border-radius:120px 120px 0 0;
+  top:0;
+}
+
+.heart::before{
+  left:110px;
+  transform:rotate(-45deg);
+  transform-origin:0 100%;
+}
+
+.heart::after{
+  left:0;
+  transform:rotate(45deg);
+  transform-origin:100% 100%;
+}
+
+@keyframes beat{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.1);}
+}
+
+.count{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  font-size:3em;
+  font-weight:bold;
+  z-index:2;
+}
+
+.name{
+  margin-top:50px;
+  font-size:1.4em;
+  animation:glow 1.5s infinite;
+}
+@keyframes glow{
+  0%,100%{text-shadow:0 0 5px #fff;}
+  50%{text-shadow:0 0 20px #fff;}
+}
+
+/* MAIN */
+.container{padding:60px 20px}
+.card{
+  background:rgba(255,255,255,0.15);
+  padding:40px;
+  border-radius:20px;
+  max-width:750px;
+  margin:0 auto 50px;
+}
+
+/* LETTER */
+#letter{
+  white-space:pre-line;
+  border-left:3px solid #fff;
+  padding-left:15px;
+  text-align:left;
+  font-size:1.2em;
+}
+
+/* GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:15px;
+}
+.gallery img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:15px;
+}
+
+/* FLOAT HEARTS */
+.float{
+  position:fixed;
+  bottom:-20px;
+  font-size:24px;
+  animation:up 6s linear forwards;
+}
+@keyframes up{
+  to{transform:translateY(-120vh);opacity:0;}
+}
+
+/* BALLOONS */
+.balloon{
+  position:fixed;
+  bottom:-60px;
+  font-size:30px;
+  animation:up 6s linear forwards;
+}
+
+/* CAKE */
+#cake{
+  font-size:6em;
+  position:relative;
+}
+#knife{
+  font-size:4em;
+  position:absolute;
+  top:-60px;
+  left:50%;
+  transform:translateX(-50%);
+  animation:cut 1.2s forwards;
+}
+@keyframes cut{
+  to{top:120px;opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🌸 INTRO -->
+<div id="intro" class="screen">
+  <h1>🌸 Welcome 🌸</h1>
+  <button class="btn" onclick="toReady()">Next</button>
+</div>
+
+<div id="ready" class="screen hidden">
+  <h1>Are you ready for the surprise? ❤️</h1>
+  <button class="btn" onclick="introCountdown()">Next</button>
+</div>
+
+<div id="introCount" class="screen hidden">
+  <div class="heartBox">
+    <div class="heart">
+      <div class="count" id="iNum">10</div>
+    </div>
+    <div class="name">HER NAME ❤️</div>
+  </div>
+</div>
+
+<!-- 🎂 MAIN -->
+<div id="main" class="container hidden">
+
+  <div class="card">
+    <h1>🎂 Happy Birthday My Love ❤️</h1>
+    <button class="btn" onclick="toggleMusic()">🎶 Play / Pause Song</button>
+  </div>
+
+  <div class="card">
+    <h2>💌 From My Heart</h2>
+    <div id="letter"></div>
+  </div>
+
+  <div class="card">
+    <h2>🕰️ Our Story</h2>
+    <p>📍 The day we met – everything changed.</p>
+    <p>💖 First date – I knew it was you.</p>
+    <p>🌍 Favorite memory – one of many forever moments.</p>
+  </div>
+
+  <div class="card">
+    <h2>📸 Memories</h2>
+    <div class="gallery">
+      <img src="photos/photo1.jpg">
+      <img src="photos/photo2.jpg">
+      <img src="photos/photo3.jpg">
+    </div>
+  </div>
+
+  <div class="card">
+    <button class="btn" onclick="showSurprise()">🎁 Surprise</button>
+    <p id="surprise" class="hidden">
+      Even miles apart, I’m right here with you ❤️
+    </p>
+    <br>
+    <button class="btn" onclick="startCelebration()">🎉 Celebration</button>
+  </div>
+</div>
+
+<!-- 🎉 CELEBRATION COUNT -->
+<div id="celebrate" class="screen hidden">
+  <div class="heartBox">
+    <div class="heart">
+      <div class="count" id="cNum">5</div>
+    </div>
+    <div class="name">HER NAME ❤️</div>
+  </div>
+</div>
+
+<!-- ❤️ FINAL -->
+<div id="final" class="screen hidden">
+  <h1>❤️ I’m Always With You ❤️</h1>
+  <p>No distance can ever separate our hearts.</p>
+</div>
+
+<audio id="bgMusic" loop>
+  <source src="music/song.mp3">
+</audio>
+
+<audio id="bdaySong">
+  <source src="music/happy-birthday.mp3">
+</audio>
+
+<script>
+/* FLOWERS */
+setInterval(()=>{
+  if(!intro.classList.contains("hidden")){
+    const f=document.createElement("div");
+    f.className="flower";
+    f.innerHTML="🌸";
+    f.style.left=Math.random()*100+"vw";
+    intro.appendChild(f);
+    setTimeout(()=>f.remove(),6000);
+  }
+},300);
+
+/* INTRO FLOW */
+function toReady(){
+  intro.classList.add("hidden");
+  ready.classList.remove("hidden");
+}
+
+function introCountdown(){
+  ready.classList.add("hidden");
+  introCount.classList.remove("hidden");
+  let c=10;
+  const i=setInterval(()=>{
+    iNum.innerText=c--;
+    if(c<0){
+      clearInterval(i);
+      introCount.classList.add("hidden");
+      main.classList.remove("hidden");
+      typeLetter();
+      startHearts();
+    }
+  },1000);
+}
+
+/* LETTER */
+const text=`My love,
+
+You made my birthday unforgettable,
+so I promised —
+you’ll remember yours forever ❤️`;
+let idx=0;
+function typeLetter(){
+  if(idx<text.length){
+    letter.innerHTML+=text.charAt(idx++);
+    setTimeout(typeLetter,40);
+  }
+}
+
+/* MUSIC */
+let playing=false;
+function toggleMusic(){
+  playing?bgMusic.pause():bgMusic.play();
+  playing=!playing;
+}
+
+/* FLOAT HEARTS */
+function startHearts(){
+  setInterval(()=>{
+    const h=document.createElement("div");
+    h.className="float";
+    h.innerHTML="❤️";
+    h.style.left=Math.random()*100+"vw";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6000);
+  },400);
+}
+
+function showSurprise(){
+  surprise.classList.remove("hidden");
+}
+
+/* CELEBRATION */
+function startCelebration(){
+  celebrate.classList.remove("hidden");
+  let c=5;
+  const i=setInterval(()=>{
+    cNum.innerText=c--;
+    if(c<0){
+      clearInterval(i);
+      celebrate.innerHTML=`
+        <h1>🎉 Happy Birthday 🎉</h1>
+        <div id="cake">🎂<div id="candles">🕯️🕯️🕯️</div></div>
+        <button class="btn" onclick="blow()">💨 Blow Candles</button>
+        <button id="cutBtn" class="btn hidden" onclick="cut()">🔪 Cut Cake</button>
+        <button id="finishBtn" class="btn hidden" onclick="showFinal()">❤️ Finish</button>
+      `;
+      startBalloons();
+    }
+  },1000);
+}
+
+function blow(){
+  candles.innerHTML="💨";
+  cutBtn.classList.remove("hidden");
+}
+
+function cut(){
+  const k=document.createElement("div");
+  k.id="knife";
+  k.innerHTML="🔪";
+  cake.appendChild(k);
+  bdaySong.play();
+  setTimeout(()=>{
+    cake.innerHTML="🍰 🍰";
+    finishBtn.classList.remove("hidden");
+  },1200);
+}
+
+function showFinal(){
+  celebrate.classList.add("hidden");
+  final.classList.remove("hidden");
+}
+
+function startBalloons(){
+  setInterval(()=>{
+    const b=document.createElement("div");
+    b.className="balloon";
+    b.innerHTML="🎈";
+    b.style.left=Math.random()*100+"vw";
+    document.body.appendChild(b);
+    setTimeout(()=>b.remove(),6000);
+  },300);
+}
+</script>
+
+</body>
+      </html>
+      
