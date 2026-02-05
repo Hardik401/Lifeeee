@@ -383,16 +383,18 @@ function startCelebration(){
     cNum.innerText=c--;
     if(c<0){
       clearInterval(i);
-      celebrate.innerHTML = `
-  <h1>🎉 Happy Birthday 🎉</h1>
-  <div id="cake">🎂<div id="candles">🕯️🕯️🕯️</div></div>
-  <button class="btn" onclick="blowCandles()">💨 Blow Candles</button>
-  <button id="finishBtn" class="btn hidden" onclick="showFinal()">Finish ❤️</button>
-`;
+      celebrate.innerHTML=`
+        <h1>🎉 Happy Birthday 🎉</h1>
+        <div id="cake">🎂<div id="candles">🕯️🕯️🕯️</div></div>
+        <button class="btn" onclick="blow()">💨 Blow Candles</button>
+        <button id="cutBtn" class="btn hidden" onclick="cut()">🔪 Cut Cake</button>
+        <button id="finishBtn" class="btn hidden" onclick="showFinal()">❤️ Finish</button>
+      `;
       startBalloons();
     }
   },1000);
 }
+
 
 function blow(){
   candles.innerHTML="💨";
