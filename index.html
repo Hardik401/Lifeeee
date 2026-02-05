@@ -291,6 +291,7 @@ body{
 
 <script>
 /* FLOWERS */
+const intro = document.getElementById("intro");
 setInterval(()=>{
   if(!intro.classList.contains("hidden")){
     const f=document.createElement("div");
@@ -382,15 +383,12 @@ function startCelebration(){
     cNum.innerText=c--;
     if(c<0){
       clearInterval(i);
-      celebrate.innerHTML='
-        <h1>🎉 Happy Birthday 🎉</h1>
-        <div id="cake">🎂<div id="candles">🕯️🕯️🕯️</div></div>
-        <button class="btn" onclick="blow()">💨 Candles Blow Kariye Rasmalaiii</button>
-        <br>
-        <button id="cutBtn" class="btn hidden" onclick="cut()">🔪 Cake Ko Cut Kriye Sonaa☺️☺️</button>
-        <br>
-        <button id="finishBtn" class="btn hidden" onclick="showFinal()">The Final Message ❤️</button>
-      ';
+      celebrate.innerHTML = `
+  <h1>🎉 Happy Birthday 🎉</h1>
+  <div id="cake">🎂<div id="candles">🕯️🕯️🕯️</div></div>
+  <button class="btn" onclick="blowCandles()">💨 Blow Candles</button>
+  <button id="finishBtn" class="btn hidden" onclick="showFinal()">Finish ❤️</button>
+`;
       startBalloons();
     }
   },1000);
