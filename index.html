@@ -238,6 +238,20 @@ body{
   50%{text-shadow:0 0 25px #ffb3d9;}
 }
 
+.name-reveal span{
+  opacity:0;
+  display:inline-block;
+  transform:translateY(20px);
+  animation:letterIn 0.6s ease forwards;
+}
+
+@keyframes letterIn{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
 </style>
 </head>
 
@@ -346,6 +360,9 @@ body{
 <div id="final" class="screen hidden cinematic">
   <h1>❤️ Once Again, A Very Very Happy Birthday To My Girl, The Deserving Princess 👑 ❤️</h1>
   <br>
+  <h1 id="finalName" class="name-reveal">
+  ❤️ Priya ❤️
+</h1>
   <h3>Yaad Hai Na Babbuu Mere Birthday Ko Aapne Mere Liye Kitna Memorable Bana Diya Tha🥺🥺
       I Promised You That Day, I'll Make Your Birthday The Most Memorable One!! 👩‍❤️‍💋‍👨👩‍❤️‍💋‍👨</h3>
   <br>
@@ -499,6 +516,7 @@ function showFinal(){
   final.classList.remove("cinematic"); // reset
   void final.offsetWidth;              // reflow trick
   final.classList.add("cinematic");    // cinematic replay
+  revealName();
 }
 
 function startBalloons(){
@@ -522,6 +540,19 @@ function confettiBlast(){
     document.body.appendChild(c);
     setTimeout(()=>c.remove(),4000);
   }
+}
+
+function revealName(){
+  const el = document.getElementById("finalName");
+  const text = el.innerText;
+  el.innerHTML = "";
+
+  [...text].forEach((char, i)=>{
+    const span = document.createElement("span");
+    span.innerText = char;
+    span.style.animationDelay = `${i * 0.15}s`;
+    el.appendChild(span);
+  });
 }
 
 </script>
