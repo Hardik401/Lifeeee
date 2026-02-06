@@ -206,6 +206,38 @@ body{
   }
 }
 
+.cinematic{
+  opacity:0;
+  transform:scale(0.9);
+  animation:cinematicFade 2.5s ease forwards;
+}
+
+@keyframes cinematicFade{
+  0%{
+    opacity:0;
+    transform:scale(0.9);
+    filter:blur(6px);
+  }
+  60%{
+    opacity:1;
+    transform:scale(1.03);
+    filter:blur(0);
+  }
+  100%{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+.cinematic h1{
+  animation:glowText 2s infinite;
+}
+
+@keyframes glowText{
+  0%,100%{text-shadow:0 0 10px #fff;}
+  50%{text-shadow:0 0 25px #ffb3d9;}
+}
+
 </style>
 </head>
 
@@ -311,7 +343,7 @@ body{
 </div>
 
 <!-- ❤️ FINAL -->
-<div id="final" class="screen hidden">
+<div id="final" class="screen hidden cinematic">
   <h1>❤️ Once Again, A Very Very Happy Birthday To My Girl, The Deserving Princess 👑 ❤️</h1>
   <br>
   <h3>Yaad Hai Na Babbuu Mere Birthday Ko Aapne Mere Liye Kitna Memorable Bana Diya Tha🥺🥺
@@ -464,6 +496,9 @@ function cut(){
 function showFinal(){
   celebrate.classList.add("hidden");
   final.classList.remove("hidden");
+  final.classList.remove("cinematic"); // reset
+  void final.offsetWidth;              // reflow trick
+  final.classList.add("cinematic");    // cinematic replay
 }
 
 function startBalloons(){
