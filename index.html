@@ -168,7 +168,7 @@ body{
   bottom:-60px;
   font-size:30px;
   animation:up 6s linear forwards;
-  z-index:2000;   /* 🔥 THIS IS THE MAGIC */
+  z-index:2000;   
   pointer-events:none;
 }
 
@@ -296,15 +296,17 @@ body{
 <div id="final" class="screen hidden">
   <h1>❤️ Once Again, A Very Very Happy Birthday To My Girl, The Deserving Princess 👑 ❤️</h1>
   <br>
-  <h3>Yaad Hai Na Babbuu Mere Birthday Ko Aapne Mere Liye Kitna Memorable Bana Diya Tha🥺🥺</h3><br>
+  <h3>Yaad Hai Na Babbuu Mere Birthday Ko Aapne Mere Liye Kitna Memorable Bana Diya Tha🥺🥺</h3>
   <h3>I Promised You That Day, I'll Make Your Birthday The Most Memorable One!! 👩‍❤️‍💋‍👨👩‍❤️‍💋‍👨</h3>
   <br>
-  <h3>Ek Coincidence To Hai Babbuu, Ki Hamare Relationship Ki Iss Timeline Mei...</h3><br>
-  <h3>Hum Dono Hi Iss TimeLine Mei Hamare First Birthday Pe Mill Nahi Sakte..🥺🥺</h3><br>
-  <h3>Bhale Hi Hum Sath Mai Nahi Hai Meri Ardhangini Jii,</h3><br>
+  <h3>Ek Coincidence To Hai Babbuu, Ki Hamare Relationship Ki Iss Timeline Mei...</h3>
+  <h3>Hum Dono Hi Apne First Birthday Pe Nahi Mill Sake, Since We Are Together🥺🥺</h3>
+  <h3>Bhale Hi Hum Sath Mai Nahi Hai Meri Ardhangini Jii,</h3>
   <h3>But Ye Gift Aapko Meri Presence, Aapke Paas Feel Karwa De...🫂🫂😘😘😘❤️❤️</h3>
   <br>
-  <h3>Babbuu I Want To Say A Few Things...</h3><br>
+  <h3>Sweetuu I Want To Say A Few Things...</h3>
+  <br>
+  <h3>aa</h3>
   
   
 </div>
@@ -423,7 +425,6 @@ function startCelebration(){
   },1000);
 }
 
-
 function blow(){
   candles.innerHTML="💨";
   cutBtn.classList.remove("hidden");
@@ -450,14 +451,12 @@ function startBalloons(){
   setInterval(()=>{
     const b=document.createElement("div");
     b.className="balloon";
-    b.innerHTML="🎈  🎇";
+    b.innerHTML="🎈";
     b.style.left=Math.random()*100+"vw";
     document.body.appendChild(b);
     setTimeout(()=>b.remove(),6000);
   },300);
 }
 </script>
-
 </body>
       </html>
-      
