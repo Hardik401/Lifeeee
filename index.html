@@ -188,6 +188,24 @@ body{
 @keyframes cut{
   to{top:120px;opacity:0;}
 }
+  .confetti{
+  position:fixed;
+  top:-10px;
+  width:8px;
+  height:14px;
+  background:red;
+  opacity:0.9;
+  animation:confettiFall 3s linear forwards;
+  z-index:3000;
+}
+
+@keyframes confettiFall{
+  to{
+    transform:translateY(110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
 </style>
 </head>
 
@@ -435,6 +453,7 @@ function cut(){
   k.id="knife";
   k.innerHTML="🔪";
   cake.appendChild(k);
+  confettiBlast();
   bdaySong.play();
   setTimeout(()=>{
     cake.innerHTML="🍰 🍰";
@@ -457,6 +476,19 @@ function startBalloons(){
     setTimeout(()=>b.remove(),6000);
   },300);
 }
+
+function confettiBlast(){
+  for(let i=0;i<120;i++){
+    const c=document.createElement("div");
+    c.className="confetti";
+    c.style.left=Math.random()*100+"vw";
+    c.style.background=`hsl(${Math.random()*360},100%,50%)`;
+    c.style.animationDuration=2+Math.random()*2+"s";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),4000);
+  }
+}
+
 </script>
 </body>
       </html>
